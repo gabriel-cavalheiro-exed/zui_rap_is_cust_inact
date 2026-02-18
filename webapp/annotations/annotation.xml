@@ -1,0 +1,8 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="/sap/opu/odata4/sap/zui_is_clientes_inativos_o4/srvd/sap/zui_is_clientes_inativos/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zui_is_clientes_inativos.v0001" Alias="SAP__self"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local"></Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

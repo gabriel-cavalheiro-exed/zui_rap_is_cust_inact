@@ -1,0 +1,194 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "br.com.gamma.zuirapiscustinact",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.20.0",
+      "toolsId": "79c5c8c2-3264-4440-9463-b4c8bb0b1a27"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_is_clientes_inativos_o4/srvd/sap/zui_is_clientes_inativos/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "zui_is_cust_inactive-manage": {
+          "semanticObject": "zui_is_cust_inactive",
+          "action": "manage",
+          "title": "{{zui_is_cust_inactive-manage.flpTitle}}",
+          "subTitle": "{{zui_is_cust_inactive-manage.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.142.6",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "br.com.gamma.zuirapiscustinact.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZI_IS_CLIENTES_INATIVOSList",
+          "target": [
+            "ZI_IS_CLIENTES_INATIVOSList"
+          ]
+        },
+        {
+          "pattern": "ZI_IS_CLIENTES_INATIVOS({key}):?query:",
+          "name": "ZI_IS_CLIENTES_INATIVOSObjectPage",
+          "target": [
+            "ZI_IS_CLIENTES_INATIVOSList",
+            "ZI_IS_CLIENTES_INATIVOSObjectPage"
+          ]
+        }
+      ],
+      "targets": {
+        "ZI_IS_CLIENTES_INATIVOSList": {
+          "type": "Component",
+          "id": "ZI_IS_CLIENTES_INATIVOSList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZI_IS_CLIENTES_INATIVOS",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZI_IS_CLIENTES_INATIVOS": {
+                  "detail": {
+                    "route": "ZI_IS_CLIENTES_INATIVOSObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "DataFieldForAction::com.sap.gateway.srvd.zui_is_clientes_inativos.v0001.EnviarParaAssistente::com.sap.gateway.srvd.zui_is_clientes_inativos.v0001.ZI_IS_CLIENTES_INATIVOSType": {
+                      "afterExecution": {
+                        "enableAutoScroll": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
+        },
+        "ZI_IS_CLIENTES_INATIVOSObjectPage": {
+          "type": "Component",
+          "id": "ZI_IS_CLIENTES_INATIVOSObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZI_IS_CLIENTES_INATIVOS"
+            }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/ZI_IS_CLIENTES_INATIVOS({key})"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
