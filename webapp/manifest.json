@@ -149,7 +149,7 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "type": "GridTable"
                   },
                   "actions": {
                     "DataFieldForAction::com.sap.gateway.srvd.zui_is_clientes_inativos.v0001.EnviarParaAssistente::com.sap.gateway.srvd.zui_is_clientes_inativos.v0001.ZI_IS_CLIENTES_INATIVOSType": {
