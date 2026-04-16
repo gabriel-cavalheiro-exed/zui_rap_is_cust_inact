@@ -20,6 +20,6 @@ builder:
           name: ZUI_IS_CUST_INA
           description: Inside Sales - Clientes Inativos
           package: ZRAP_CLIENTES_INATIVOS
-          transport: BWPK900098
+          transport: BWPK900082
         exclude:
           - /test/
